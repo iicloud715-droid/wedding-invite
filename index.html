@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>გიორგი & ნინო - ქორწილის მოსაწვევი</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
 
+        body {
+            background-color: #1a0f12;
+            color: #f3e5d8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .mobile-card {
+            width: 100%;
+            max-width: 430px;
+            background: linear-gradient(180deg, #2c1219 0%, #120709 100%);
+            border: 1px solid #d4af37;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        /* ანიმაციური კონვერტის ეფექტი */
+        .envelope-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #4a0e17;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: transform 0.8s ease-in-out, opacity 0.8s;
+        }
+
+        .wax-seal {
+            width: 80px;
+            height: 80px;
+            background: #b8860b;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a0e17;
+            font-weight: bold;
+            font-size: 24px;
+            border: 3px solid #ffd700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            cursor: pointer;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        /* კონტენტის სექციები */
+        .header-section {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .names {
+            font-size: 32px;
+            color: #d4af37;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .date {
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: #e0c9a6;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #d4af37;
+            font-size: 20px;
+            margin: 30px 0 15px;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .section-box {
+            text-align: center;
+            padding: 0 25px;
+        }
+
+        /* განრიგი */
+        .timeline {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .timeline li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #d4af37;
+        }
+
+        .timeline time {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* დრეს კოდი */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+        }
+
+        /* ღილაკები */
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a0f12;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+        }
+
+        /* ფორმა */
+        .rsvp-form input, .rsvp-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #d4af37;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mobile-card">
+    <!-- ბეჭდიანი კონვერტის გადაფარვა -->
+    <div class="envelope-overlay" id="envelope">
+        <h2 style="color: #d4af37;">თქვენ მოწვეული ხართ</h2>
+        <div class="wax-seal" onclick="openEnvelope()">G & N</div>
+        <p style="margin-top: 15px; font-size: 12px; color: #e0c9a6;">დააჭირეთ ბეჭედს გახსნისთვის</p>
+    </div>
+
+    <!-- მთავარი მოსაწვევი -->
+    <div class="header-section">
+        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px;">ჩვენი ქორწილი</p>
+        <h1 class="names">გიორგი & ნინო</h1>
+        <p class="date">24.09.2026</p>
+    </div>
+
+    <!-- დღის განრიგი -->
+    <div class="section-box">
+        <h3 class="section-title">დღის განრიგი</h3>
+        <ul class="timeline">
+            <li><time>16:00</time> - ჯვრისწერის ცერემონია</li>
+            <li><time>18:00</time> - საქორწილო ბანკეტი</li>
+            <li><time>22:00</time> - ტორტის ჭრა & ფეიერვერკი</li>
+        </ul>
+    </div>
+
+    <!-- ლოკაცია -->
+    <div class="section-box">
+        <h3 class="section-title">ლოკაცია</h3>
+        <p>შატო მუხრანი, მცხეთა</p>
+        <a href="https://maps.google.com" target="_blank" class="btn">რუკაზე ნახვა</a>
+    </div>
+
+    <!-- დრეს კოდი -->
+    <div class="section-box">
+        <h3 class="section-title">დრეს-კოდი</h3>
+        <p>Black Tie / Elegant</p>
+        <div class="color-palette">
+            <div class="color-circle" style="background: #000;"></div>
+            <div class="color-circle" style="background: #4a0e17;"></div>
+            <div class="color-circle" style="background: #d4af37;"></div>
+            <div class="color-circle" style="background: #fff;"></div>
+        </div>
+    </div>
+
+    <!-- RSVP ფორმა -->
+    <div class="section-box">
+        <h3 class="section-title">დაადასტურეთ დასწრება</h3>
+        <form class="rsvp-form" onsubmit="submitRSVP(event)">
+            <input type="text" placeholder="თქვენი სახელი და გვარი" required>
+            <select required>
+                <option value="" disabled selected>დაესწრებით?</option>
+                <option value="yes">დიახ, დიდი სიამოვნებით</option>
+                <option value="no">სამწუხაროდ ვერ მოვდივარ</option>
+            </select>
+            <input type="number" placeholder="სტუმრების რაოდენობა" min="1" max="5">
+            <button type="submit" class="btn">გაგზავნა</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openEnvelope() {
+        const envelope = document.getElementById('envelope');
+        envelope.style.transform = 'translateY(-100%)';
+        envelope.style.opacity = '0';
+        setTimeout(() => { envelope.style.display = 'none'; }, 800);
+    }
+
+    function submitRSVP(e) {
+        e.preventDefault();
+        alert('მადლობა! თქვენი პასუხი მიღებულია.');
+    }
+</script>
+
+</body>
+</html>
