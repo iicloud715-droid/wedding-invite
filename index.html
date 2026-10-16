@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #1a0f12;
+            background-color: #2b171c;
             color: #f3e5d8;
             display: flex;
             justify-content: center;
@@ -25,80 +25,117 @@
         .mobile-card {
             width: 100%;
             max-width: 430px;
-            background: linear-gradient(180deg, #2c1219 0%, #120709 100%);
+            background: linear-gradient(180deg, #3d1922 0%, #1a0b0f 100%);
             border: 1px solid #d4af37;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
             overflow: hidden;
             position: relative;
             padding-bottom: 40px;
         }
 
-        /* ანიმაციური კონვერტის ეფექტი */
+        /* კონვერტისა და ბეჭდის ანიმაცია */
         .envelope-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #4a0e17;
+            background: linear-gradient(135deg, #4a0e17 0%, #1a0b0f 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 10;
-            transition: transform 0.8s ease-in-out, opacity 0.8s;
+            z-index: 100;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .envelope-frame {
+            border: 2px solid #d4af37;
+            padding: 40px 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 350px;
+            background: rgba(44, 18, 25, 0.8);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .wax-seal {
-            width: 80px;
-            height: 80px;
-            background: #b8860b;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #e6c66e 0%, #b8860b 100%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #4a0e17;
+            color: #2b171c;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 26px;
             border: 3px solid #ffd700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 25px;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { transform: scale(1U.1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
-        /* კონტენტის სექციები */
-        .header-section {
+        /* მთავარი ილუსტრაცია ბექგრაუნდად */
+        .hero-banner {
+            width: 100%;
+            height: 420px;
+            background-image: url('Gemini_Generated_Image_3iiqmd3iiqmd3iiq.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26,11,15,0.95) 0%, rgba(26,11,15,0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 25px;
             text-align: center;
-            padding: 50px 20px 30px;
         }
 
         .names {
-            font-size: 32px;
-            color: #d4af37;
-            margin-bottom: 10px;
+            font-size: 28px;
+            color: #fceea7;
+            margin-bottom: 5px;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .date {
-            font-size: 18px;
+            font-size: 16px;
             letter-spacing: 3px;
-            color: #e0c9a6;
+            color: #d4af37;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
         .section-title {
             text-align: center;
             color: #d4af37;
-            font-size: 20px;
-            margin: 30px 0 15px;
-            border-bottom: 1px solid #d4af37;
+            font-size: 18px;
+            margin: 30px 0 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
             padding-bottom: 5px;
             display: inline-block;
         }
@@ -112,13 +149,22 @@
         .timeline {
             list-style: none;
             text-align: left;
-            margin: 20px 0;
+            margin: 15px 0;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .timeline li {
-            margin-bottom: 15px;
-            padding-left: 20px;
+            margin-bottom: 12px;
+            padding-left: 15px;
             border-left: 2px solid #d4af37;
+            font-size: 15px;
+        }
+
+        .timeline li:last-child {
+            margin-bottom: 0;
         }
 
         .timeline time {
@@ -130,44 +176,52 @@
         .color-palette {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             margin-top: 10px;
         }
 
         .color-circle {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            border: 1px solid #fff;
+            border: 2px solid #d4af37;
         }
 
         /* ღილაკები */
         .btn {
             display: inline-block;
-            background: #d4af37;
-            color: #1a0f12;
-            padding: 12px 25px;
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #1a0b0f;
+            padding: 12px 30px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 12px;
             border: none;
             cursor: pointer;
             transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
         }
 
         .btn:hover {
             background: #fff;
+            color: #1a0b0f;
         }
 
         /* ფორმა */
         .rsvp-form input, .rsvp-form select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 8px 0;
-            border-radius: 5px;
+            border-radius: 8px;
             border: 1px solid #d4af37;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.07);
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .rsvp-form select option {
+            background: #2b171c;
             color: #fff;
         }
     </style>
@@ -175,25 +229,30 @@
 <body>
 
 <div class="mobile-card">
-    <!-- ბეჭდიანი კონვერტის გადაფარვა -->
+    <!-- ანიმაციური კონვერტი და ბეჭედი -->
     <div class="envelope-overlay" id="envelope">
-        <h2 style="color: #d4af37;">თქვენ მოწვეული ხართ</h2>
-        <div class="wax-seal" onclick="openEnvelope()">G & N</div>
-        <p style="margin-top: 15px; font-size: 12px; color: #e0c9a6;">დააჭირეთ ბეჭედს გახსნისთვის</p>
+        <div class="envelope-frame">
+            <p style="color: #d4af37; font-size: 14px; letter-spacing: 2px; text-transform: uppercase;">სპეციალური მოწვევა</p>
+            <h2 style="color: #f3e5d8; font-size: 24px; margin: 10px 0;">გიორგი & ნინო</h2>
+            <div class="wax-seal" onclick="openEnvelope()">G&N</div>
+            <p style="margin-top: 20px; font-size: 13px; color: #d0b894;">დააჭირეთ ცვილის ბეჭედს მოსაწვევის გასახსნელად</p>
+        </div>
     </div>
 
-    <!-- მთავარი მოსაწვევი -->
-    <div class="header-section">
-        <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 12px;">ჩვენი ქორწილი</p>
-        <h1 class="names">გიორგი & ნინო</h1>
-        <p class="date">24.09.2026</p>
+    <!-- მთავარი ილუსტრაცია ბექგრაუნდად -->
+    <div class="hero-banner">
+        <div class="hero-overlay">
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 11px; color: #d4af37; margin-bottom: 5px;">ჩვენი ქორწილი</p>
+            <h1 class="names">გიორგი & ნინო</h1>
+            <p class="date">14 ივნისი, 2026</p>
+        </div>
     </div>
 
     <!-- დღის განრიგი -->
     <div class="section-box">
         <h3 class="section-title">დღის განრიგი</h3>
         <ul class="timeline">
-            <li><time>16:00</time> - ჯვრისწერის ცერემონია</li>
+            <li><time>15:00</time> - ჯვრისწერის ცერემონია (მცხეთა)</li>
             <li><time>18:00</time> - საქორწილო ბანკეტი</li>
             <li><time>22:00</time> - ტორტის ჭრა & ფეიერვერკი</li>
         </ul>
@@ -202,19 +261,19 @@
     <!-- ლოკაცია -->
     <div class="section-box">
         <h3 class="section-title">ლოკაცია</h3>
-        <p>შატო მუხრანი, მცხეთა</p>
+        <p style="font-size: 15px; margin-bottom: 5px;">შატო ლილო, თბილისი</p>
         <a href="https://maps.google.com" target="_blank" class="btn">რუკაზე ნახვა</a>
     </div>
 
     <!-- დრეს კოდი -->
     <div class="section-box">
         <h3 class="section-title">დრეს-კოდი</h3>
-        <p>Black Tie / Elegant</p>
+        <p style="font-size: 14px; margin-bottom: 5px;">Black Tie / Elegant</p>
         <div class="color-palette">
-            <div class="color-circle" style="background: #000;"></div>
+            <div class="color-circle" style="background: #1a0b0f;"></div>
             <div class="color-circle" style="background: #4a0e17;"></div>
             <div class="color-circle" style="background: #d4af37;"></div>
-            <div class="color-circle" style="background: #fff;"></div>
+            <div class="color-circle" style="background: #f3e5d8;"></div>
         </div>
     </div>
 
@@ -229,7 +288,7 @@
                 <option value="no">სამწუხაროდ ვერ მოვდივარ</option>
             </select>
             <input type="number" placeholder="სტუმრების რაოდენობა" min="1" max="5">
-            <button type="submit" class="btn">გაგზავნა</button>
+            <button type="submit" class="btn">პასუხის გაგზავნა</button>
         </form>
     </div>
 </div>
@@ -239,12 +298,12 @@
         const envelope = document.getElementById('envelope');
         envelope.style.transform = 'translateY(-100%)';
         envelope.style.opacity = '0';
-        setTimeout(() => { envelope.style.display = 'none'; }, 800);
+        setTimeout(() => { envelope.style.display = 'none'; }, 1000);
     }
 
     function submitRSVP(e) {
         e.preventDefault();
-        alert('მადლობა! თქვენი პასუხი მიღებულია.');
+        alert('მადლობა! თქვენი პასუხი წარმატებით გაიგზავნა.');
     }
 </script>
 
